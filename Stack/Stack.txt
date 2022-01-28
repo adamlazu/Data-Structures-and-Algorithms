@@ -1,0 +1,13 @@
+Stack
+    Stack is one of linear data structures which follows the LIFO (Last In First Out) principle.
+
+    You can imagine stack as a pile of books. so you have to remove all the books one by one until you reach the
+    book at the bottom of the pile.
+
+Basics Stack Operation
+    Push = Add an item into the top of a stack
+    Pop = Remove an item from the top of the stack
+    isEmpty = Check if the stack is empty
+    isFull = Check if the stack is isFull
+    Peek = Get the value from the top of stack
+
