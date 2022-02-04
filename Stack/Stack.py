@@ -1,32 +1,38 @@
 #This is the implementation of stack in python language
-def createStack():
-    stack = []
-    return stack
-    #this function will return a list that will be used as a stack
 
-def push(stack, item):
-    return stack.append(item)
-    #this function is designed to add an item into the top of stack
+class stack:
+    def __init__(self):
+        self.stack=[]
+        #this is the constructor to create a stack
 
-def pop(stack):
-    if len(stack) == 0:
-        print("stack is already empty")
-    else:
-        return stack.pop()
-    #this function will remove and return the item from the top of the stack
+    def push(self, item):
+        return self.stack.append(item)
+        #a method for push an item into the stack
+    
+    def pop(self):
+        return self.stack.pop()
+        #this method will pop or remove the item on top of the stack
+    
+    def peek(self):
+        return self.stack[len(self.stack)-1]
+        #will return an item that is on the top of the stack
+        #without removing it
+    
+    def isEmpty(self):
+        if len(self.stack)==0:
+            return True
+        else:
+            return False
+        #will check whether the stack itself is empty or not
 
-def checkEmpty(stack):
-    if len(stack)==0:
-        return True
-    else:
-        return False
-    #it will return True if the stack is empty
 
+stack = stack()
+stack.push(1)
+stack.push(5)
+stack.push(7)
 
+print(stack.peek())
+print(stack.pop())
+print(stack.pop())
+print(stack.peek())
 
-stack = createStack()
-push(stack, 2)
-push(stack, 5)
-push(stack, 1)
-print(pop(stack))
-print(pop(stack))
