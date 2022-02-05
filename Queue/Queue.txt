@@ -1,0 +1,6 @@
+Queue 
+    A data structure that follows FIFO (first in first out) principle.
+
+Basic Queue Operation
+    enqueue = add an item into a Queue
+    dequeue = remove the item from the front of queue
