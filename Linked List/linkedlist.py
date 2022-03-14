@@ -16,21 +16,25 @@ class Linkedlist:
     #inserting nodes at the begining of linked list (can be used to implement a stack)
 
     def insert(self, index, item):
-        flag = 1
         pre = self.head
         data = Node(item)
         for i in range (index-1):
             if pre.next == None:
                 print('the index is out of reach')
-                flag = 0
+                return
             pre = pre.next
-        if flag == 1:
-            aft = pre.next
-            pre.next = data
-            data.next = aft
-        else:
-            pass
+       
+        aft = pre.next
+        pre.next = data
+        data.next = aft
 
+    def count(self):
+        node = self.head
+        count = 0
+        while node != None:
+            node = node.next
+            count+=1
+        return count
 
 
 
@@ -38,7 +42,9 @@ ll=Linkedlist()
 ll.insertatbegining(3)
 ll.insertatbegining(2)
 ll.insertatbegining(1)
+ll.insertatbegining(9)
 ll.insert(2,5)
+print(ll.count())
 while ll.head!=None:
     print(ll.head.item)
     ll.head=ll.head.next
