@@ -28,6 +28,25 @@ class Linkedlist:
         pre.next = data
         data.next = aft
 
+    def insertatend(self,item):
+        temp = self.head
+        if self.head == None:
+            self.head = Node(item)
+        else:
+            while temp.next != None:
+                temp = temp.next
+            temp.next = Node(item)
+
+    def removeitembyobject(self,object):
+        if self.head.item == object:
+            self.head = self.head.next
+        else:
+            temp = self.head
+            while temp.next.item != object:
+                temp = temp.next
+            temp.next = temp.next.next
+
+
     def count(self):
         node = self.head
         count = 0
@@ -44,6 +63,9 @@ ll.insertatbegining(2)
 ll.insertatbegining(1)
 ll.insertatbegining(9)
 ll.insert(2,5)
+ll.insertatend(4)
+ll.removeitembyobject(9)
+ll.removeitembyobject(2)
 print(ll.count())
 while ll.head!=None:
     print(ll.head.item)
