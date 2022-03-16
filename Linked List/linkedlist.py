@@ -27,6 +27,7 @@ class Linkedlist:
         aft = pre.next
         pre.next = data
         data.next = aft
+        #inserting an item at certain index
 
     def insertatend(self,item):
         temp = self.head
@@ -36,6 +37,7 @@ class Linkedlist:
             while temp.next != None:
                 temp = temp.next
             temp.next = Node(item)
+        #inserting item at the end of linked list
 
     def removeitembyobject(self,object):
         if self.head.item == object:
@@ -45,7 +47,16 @@ class Linkedlist:
             while temp.next.item != object:
                 temp = temp.next
             temp.next = temp.next.next
-
+        #removing item by the object
+    
+    def search(self, object):
+        temp = self.head
+        while temp != None:
+            if temp.item == object:
+                return True
+            temp = temp.next
+        return False
+        #searching item
 
     def count(self):
         node = self.head
@@ -54,7 +65,7 @@ class Linkedlist:
             node = node.next
             count+=1
         return count
-
+        #count the nodes
 
 
 ll=Linkedlist()
@@ -66,6 +77,7 @@ ll.insert(2,5)
 ll.insertatend(4)
 ll.removeitembyobject(9)
 ll.removeitembyobject(2)
+print(ll.search(3))
 print(ll.count())
 while ll.head!=None:
     print(ll.head.item)
