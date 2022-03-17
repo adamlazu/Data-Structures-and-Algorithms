@@ -53,6 +53,19 @@ class BST:
             print(node.item, end=' ')
             self._inorder(node.right)
 
+    def postorder(self):
+        if self.root == None:
+            print('tree is empty')
+        else:
+            self._postorder(self.root)
+    
+    def _postorder(self, node):
+        if node!= None:
+            self._postorder(node.left)
+            self._postorder(node.right)
+            print(node.item, end='')
+
+
 bst = BST()
 bst.insert(15)
 bst.insert(27)
