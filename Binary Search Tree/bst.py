@@ -63,15 +63,21 @@ class BST:
         if node!= None:
             self._postorder(node.left)
             self._postorder(node.right)
-            print(node.item, end='')
+            print(node.item, end=' ')
 
+    def search(self, item):
+        return self._search(self.head, item)
 
-bst = BST()
-bst.insert(15)
-bst.insert(27)
-bst.insert(25)
-bst.insert(29)
-bst.insert(30)
-bst.preorder()
-print('')
-bst.inorder()
+    def _search(self, curnod, item):
+        if curnod == None:
+            return 0
+
+        if curnod.data == item:
+            return 1
+        elif curnod.data>item:
+            return self._search(curnod.left,item)
+        elif curnod.data<item:
+            return self._search(curnod.right,item)
+        
+
+    
