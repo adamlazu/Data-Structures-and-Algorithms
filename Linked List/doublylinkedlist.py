@@ -10,7 +10,7 @@ class dll:
         self.head = None
         self.tail = None
     
-    def insertatand(self,item):
+    def insertatend(self,item):
         newnode = node(item)
         if self.head == None:
             self.head = newnode
@@ -56,12 +56,46 @@ class dll:
         else:
             print('list is empty')
 
+    def removekey(self, key):
+        if self.head != None:
+            temp = self.head
+            flag = 0
 
+            while temp != None:
+                if temp.data == key:
+                    flag = 1
+                    break
+                temp = temp.next
+
+            if flag == 1:
+                if temp == self.head:
+                    self.head = temp.next
+                else:
+                    temp.prev.next = temp.next
+                
+                if temp == self.tail:
+                    self.tail = temp.prev
+                else:
+                    temp.next.prev = temp.prev
+            else:
+                print(f'{data} not found.')
+
+    def displayForward(self):
+        temp = self.head
+        while temp != None:
+            print(temp.data, end = ' ')
+            temp = temp.next
+
+    def displayBackward(self):
+        temp = self.tail
+        while temp != None:
+            print(temp.data, end =' ')
+            temp = temp.prev
+        
 dll = dll()
-
-dll.insertatand(2)
-dll.insertafter(2,4)
-dll.insertafter(4,8)
-dll.insertafter(2,3)
-
-print(dll.head.next.data)
+dll.insertatbegining(5)
+dll.insertatend(13)
+dll.insertafter(5,7)
+dll.insertafter(7,12)
+dll.removekey(13)
+dll.displayBackward()
