@@ -66,6 +66,26 @@ class Linkedlist:
             count+=1
         return count
         #count the nodes
+    
+    def reverse(self):
+        prev = None
+        curr = self.head
+        after = None
+
+        while curr != None:
+            after = curr.next
+            curr.next = prev
+            prev = curr
+            curr = after
+        
+        self.head = prev
+
+    def printlist(self):
+        temp = self.head
+        while temp != None:
+            print(temp.item, end = ' ')
+            temp = temp.next
+            
 
 
 ll=Linkedlist()
@@ -75,10 +95,5 @@ ll.insertatbegining(1)
 ll.insertatbegining(9)
 ll.insert(2,5)
 ll.insertatend(4)
-ll.removeitembyobject(9)
-ll.removeitembyobject(2)
-print(ll.search(3))
-print(ll.count())
-while ll.head!=None:
-    print(ll.head.item)
-    ll.head=ll.head.next
+ll.reverse()
+ll.printlist()
